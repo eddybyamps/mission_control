@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS `mission_control`
-    DEFAULT CHARACTER SET utf8mb4
-    DEFAULT COLLATE utf8mb4_0900_ai_ci;
+    CREATE DATABASE IF NOT EXISTS `project_mission_control`
+        DEFAULT CHARACTER SET utf8mb4
+        DEFAULT COLLATE utf8mb4_general_ci;
 
 CREATE TABLE roles (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -13,7 +13,7 @@ CREATE TABLE roles (
     deleted_at DATETIME NULL DEFAULT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE permissions (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -28,7 +28,7 @@ CREATE TABLE permissions (
     deleted_at DATETIME NULL DEFAULT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE role_permissions (
     role_id INT UNSIGNED NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE role_permissions (
         ON DELETE CASCADE
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE users (
     user_id CHAR(36) NOT NULL PRIMARY KEY,
@@ -84,7 +84,7 @@ CREATE TABLE users (
         ON DELETE SET NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE users_history (
     history_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -106,7 +106,7 @@ CREATE TABLE users_history (
     action ENUM('insert','update','delete') NOT NULL,
     changed_by CHAR(36) NULL,
     changed_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE missions (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -145,7 +145,7 @@ CREATE TABLE missions (
         ON DELETE SET NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE missions_history (
     history_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -166,7 +166,7 @@ CREATE TABLE missions_history (
     changed_by CHAR(36) NULL,
     changed_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (mission_id) REFERENCES missions(id) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- this is the old version of the teams table use the one in updated file below
 CREATE TABLE teams (
@@ -189,7 +189,7 @@ CREATE TABLE teams (
         ON DELETE RESTRICT
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+COLLATE=utf8mb4_general_ci;
 
 -- new columns added in table like role check updates for the table to use.
 CREATE TABLE team_membership (
@@ -211,7 +211,7 @@ CREATE TABLE team_membership (
         ON DELETE CASCADE
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE mission_team_assignments (
     mission_id INT UNSIGNED NOT NULL,
@@ -235,7 +235,7 @@ CREATE TABLE mission_team_assignments (
         ON DELETE SET NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+COLLATE=utf8mb4_general_ci;
 
 -- THis the old version use the one below
 CREATE TABLE tasks (
@@ -260,7 +260,7 @@ CREATE TABLE tasks (
         ON DELETE CASCADE
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+COLLATE=utf8mb4_general_ci;
 
 -- v1.1
 CREATE TABLE tasks (
@@ -318,7 +318,7 @@ CREATE TABLE tasks (
         ON DELETE SET NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+COLLATE=utf8mb4_general_ci;
 
 -- newly added in v1.1
 CREATE TABLE task_comments (
@@ -345,7 +345,7 @@ CREATE TABLE task_comments (
         ON DELETE CASCADE
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE notifications (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -372,7 +372,7 @@ CREATE TABLE notifications (
         ON DELETE SET NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE activity_logs (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -392,7 +392,7 @@ CREATE TABLE activity_logs (
         ON DELETE SET NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE login_attempts (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -406,7 +406,7 @@ CREATE TABLE login_attempts (
     INDEX idx_email (email)
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+COLLATE=utf8mb4_general_ci;
 
 
 

@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS reports (
         FOREIGN KEY (deleted_by) REFERENCES users(user_id)
 )  ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+COLLATE=utf8mb4_general_ci;
 
 
 CREATE TABLE IF NOT EXISTS report_comments (
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS report_comments (
         FOREIGN KEY (report_id) REFERENCES reports(id) ON DELETE CASCADE,
 
         FOREIGN KEY (user_id) REFERENCES users(user_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 ALTER TABLE notifications 
     ADD COLUMN type VARCHAR(50) NOT NULL DEFAULT 'info',
